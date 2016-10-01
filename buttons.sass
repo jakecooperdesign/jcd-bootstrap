@@ -1,0 +1,22 @@
+.btn 
+	text-decoration: none
+	padding: 1em 1.25em
+	background-color: grey(5)
+	border: 1px solid transparent
+	border-radius: .5rem
+	display: inline-block
+	+transition-all
+
+	&:hover 
+		border-color: grey(15)
+
+	&.has-hover-bg
+		background-color: transparent
+		border: none
+		
+		&:hover
+			background-color: grey(10)		
+
+.btn-outline
+	background: transparent
+	border: 1px solid grey(10)

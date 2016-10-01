@@ -1,0 +1,55 @@
+.container
+	width: 90%
+	margin-left: auto
+	margin-right: auto
+	display: block
+
+	+bp-min($container-width-min)
+		width: 100%
+		max-width: $container-width-min
+
+	+bp-min($widescreen)
+		max-width: $widescreen
+
+.columns
+	margin: -10px
+	+tablet
+		display: flex
+		&.has-touching-borders > .column
+			padding-left: 2em
+			padding-right: 2em
+
+			&:not(:last-of-type)
+				border-right: 1px solid grey(10)
+
+.is-wrapped,
+.is-multiline
+	flex-wrap: wrap
+
+.is-align-center
+	align-items: center
+
+.is-justified
+	justify-content: space-between
+
+.is-centered
+	justify-content: center
+
+.column
+	padding: 10px
+
+	&.is-narrow
+		flex: none
+
+	&.is-align-center
+		align-self: center
+
+	+tablet
+		flex: 1
+		@for $i from 1 through 12
+			.columns > &.is-#{$i}
+				width: ($i / 12) * 100%
+				flex: none
+
+			.columns > &.is-offset-#{$i}
+				margin-left: ($i / 12) * 100%

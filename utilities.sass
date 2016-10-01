@@ -1,0 +1,59 @@
+=from($device)
+  @media screen and (min-width: $device)
+    @content
+
+=until($device)
+  @media screen and (max-width: $device - 1px)
+    @content
+
+=between($min, $max)
+  @media screen and (min-width: $min) and (max-width: $max - 1px)
+    @content
+
+=mobile
+  +until($tablet)
+    @content
+
+=tablet
+  +from($tablet)
+    @content
+
+=tablet-only
+  +between($tablet, $desktop)
+    @content
+
+=touch
+  +until($desktop)
+    @content
+
+=desktop
+  +from($desktop)
+    @content
+
+=desktop-only
+  +between($desktop, $widescreen)
+    @content
+
+=widescreen
+  +from($widescreen)
+    @content
+
+=render-directional-property($property, $value, $has_amplifier: true)
+  +apply-directional-properties($property, $value)
+  @if $has_amplifier
+    +apply-directional-properties($property, $value * 2, '-large')
+    +apply-directional-properties($property, $value / 2, '-small')
+
+=apply-directional-properties($property, $value, $suffix: null)
+  .has-#{$property}#{$suffix}
+    #{$property}: $value
+  .has-#{$property}-vert#{$suffix}
+    #{$property}-top: $value
+    #{$property}-bottom: $value
+  .has-#{$property}-horiz#{$suffix}
+    #{$property}-left: $value
+    #{$property}-right: $value
+  $directions: ('top','bottom','left','right')
+  @each $direction in $directions
+    .has-#{$property}-#{$direction}#{$suffix}
+      #{$property}-#{$direction}: $value

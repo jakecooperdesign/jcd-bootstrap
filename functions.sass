@@ -1,0 +1,29 @@
+@function grey($amt) 
+	@return darken(white, $amt)
+
+@function pow($number, $power:1)
+	@if $power > 0
+		@for $i from 1 through $power
+			$number: $number * $i
+	@else
+		$number: 1
+
+	@return $number
+
+@function fs($level: 1, $ratio: 1.3333)
+	$size: 1rem
+
+	@if $level > 0
+		// line-height: 1.6
+		@for $i from 1 through $level
+			$size: $size * $ratio
+
+	@if $level < 0
+		// line-height: 1.4
+		$ratio: 1.125
+
+		$level: abs($level)
+		@for $i from 1 through $level
+			$size: $size / $ratio
+
+	@return $size

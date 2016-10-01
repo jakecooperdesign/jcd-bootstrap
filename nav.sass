@@ -1,0 +1,128 @@
+nav a
+	text-decoration: none
+
+.nav
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+
+.nav-brand
+	+font-level(2)
+	+mobile
+		+font-level(1)
+
+.nav-toggle-input
+	display: none
+
+	&:checked + .nav-menu	
+		display: flex
+
+.nav-toggle
+	display: flex
+	flex-basis: 0
+	flex-grow: 0
+	flex-shrink: 1
+	align-items: stretch
+	justify-content: flex-end
+	+tablet
+		display: none
+
+.nav-left
+	display: flex
+	flex: 1
+	align-items: stretch
+	justify-content flex-start
+
+.nav-right
+	+mobile
+		flex-basis: 100%
+	+tablet
+		display: flex
+		flex: 1
+		align-items: stretch
+		justify-content: flex-end
+
+.nav-menu 
+	+mobile
+		display: none
+		flex-direction: column
+		padding: 1em 0
+	+tablet
+		margin: 0 -1em
+
+.nav-item
+	padding: 1em 0
+	text-decoration: none
+
+	.has-dark-bg &
+		color: white
+		opacity: .75
+		&:hover
+			opacity: 1
+
+	+tablet
+		padding: 1em
+
+.nav-directional
+
+	.nav-prev,
+	.nav-next
+		align-items: center	
+		flex: 1
+		display: flex
+		border: 1px solid grey(10)
+		&:hover
+			background: grey(3)	
+		+mobile
+			flex-basis: 100%
+			justify-content: center !important
+			text-align: center !important
+
+	&  > .nav-next
+		text-align: right
+		justify-content: flex-end
+		+mobile
+			border-top: none
+		+tablet
+			border-left: none
+
+.nav-arrow
+	+mobile
+		display: none !important
+	+transition-all
+	margin: 2em 2.5em
+	position: relative
+	left: 0
+
+	.nav-prev &
+		margin-right: 0
+
+	.nav-prev:hover &
+		left: 1rem
+
+	.nav-next &
+		margin-left: 0
+	
+	.nav-next:hover &
+		left: -1rem
+
+.next-btn,
+.prev-btn
+	background: none
+	border: none
+	padding: 2em
+	font-weight: 700
+	text-decoration: none
+	+mobile
+		padding: 1em
+
+	.label
+		margin-top: .25rem
+
+.nav-social
+	+font-level(1)
+	// margin-top: 1.5rem
+
+	.nav-item
+		padding: 0
+		padding-right: 1em
