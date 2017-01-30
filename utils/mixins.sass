@@ -56,7 +56,7 @@
 
 =button($color: grey(5), $hover: false, $border: false)
   background-color: if($hover or $border, transparent, $color)
-  border: 2px solid if($border, $color, transparent)
+  border: $button-border-width solid if($border, $color, transparent)
   &:hover
     background-color: if($hover, $color, darken($color, 5%))
     border-color: if($hover, $color, darken($color, 5%))
