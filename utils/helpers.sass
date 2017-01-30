@@ -30,15 +30,24 @@
 .is-overlay--pad
 	+overlay(10px)
 
-.is-clung
+=cling($layer: 10)
 	position: absolute
+	z-index: $layer
+
+.is-clung
+	+cling 
+
 	&-top
+		+cling
 		top: 0
 	&-bottom
+		+cling
 		bottom: 0
 	&-left
+		+cling
 		left: 0
 	&-right
+		+cling
 		right: 0
 
 
