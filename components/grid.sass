@@ -4,11 +4,11 @@
 	margin-right: auto
 	display: block
 
-	+bp-min($container-width-min)
+	+from($container-width-min)
 		width: 100%
 		max-width: $container-width-min
 
-	+bp-min($widescreen)
+	+from($widescreen)
 		max-width: $widescreen
 
 .columns
@@ -34,6 +34,15 @@
 
 .is-centered
 	justify-content: center
+
+.grid
+	display: flex
+	flex-wrap: wrap
+	
+	@for $i from 1 through 12
+		& > .is-#{$i}
+			width: ($i / 12) * 100%
+			flex: none
 
 .column
 	padding: 10px

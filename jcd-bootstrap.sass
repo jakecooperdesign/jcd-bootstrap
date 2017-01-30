@@ -1,18 +1,30 @@
 @charset "utf-8"
 
-@import "vars"
-@import "functions"
-@import "fonts"
-@import "utilities"
-@import "helpers"
+// SETUP 
+@import "setup/functions"
+@import "setup/vars"
+@import "setup/normalize"
 
-@import "normalize"
-@import "global"
-@import "typography"
-@import "flex"
-@import "list"
-@import "form"
-@import "buttons"
-@import "nav"
-@import "grid"
-@import "shame"
+// UTILS
+@import "utils/mixins"
+@import "utils/responsivity"
+@import "utils/helpers"
+
+// ATTRIBUTES
+@import "attributes/fonts"
+@import "attributes/backgrounds"
+@import "attributes/typography"
+@import "attributes/animation"
+@import "attributes/layout"
+@import "attributes/flex"
+
+// ELEMS
+@import "elements/defaults"
+@import "elements/list"
+@import "elements/form"
+@import "elements/buttons"
+
+// COMPONENTS
+@import "components/hero"
+@import "components/nav"
+@import "components/grid"

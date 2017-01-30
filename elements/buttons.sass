@@ -1,0 +1,17 @@
+.btn
+	+button-base
+
+	&.btn-small
+		padding: $button-pad-small
+
+.btn-default
+	+button
+
+.btn-hover
+	+button($hover: true)
+
+	&-white
+		+button($hover: true, $color: white)
+
+.btn-border
+	+button($color: grey(15), $border: true)

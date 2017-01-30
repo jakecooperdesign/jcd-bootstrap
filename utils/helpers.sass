@@ -1,0 +1,128 @@
+// SIZING
+.is-vh
+	height: 100vh
+
+.is-wide
+	width: 100%
+
+.circle
+	border-radius: 50% !important
+
+// POSITIONING
+.is-clearfix
+	+clearfix
+
+.is-pulled-left
+	float: left
+
+.is-pulled-right
+	float: right
+
+.is-relative
+	position: relative
+
+.is-block
+	display: block
+
+.is-overlay
+	+overlay
+
+.is-overlay--pad
+	+overlay(10px)
+
+.is-clung
+	position: absolute
+	&-top
+		top: 0
+	&-bottom
+		bottom: 0
+	&-left
+		left: 0
+	&-right
+		right: 0
+
+
+// TEXT
+.has-text-centered
+	text-align: center
+
+.has-text-left
+	text-align: left
+
+.has-text-right
+	text-align: right
+
+.has-text-white
+	color: white !important
+
+.has-text-light
+	color: grey(40) !important
+
+// SIZE MODIFIERS
++render-directional-property(border, 1px solid grey(10), false)
++render-directional-property(margin, 4rem)
++render-directional-property(padding, 4rem)
+
+.is-marginless
+	margin: 0 !important
+
+.is-marginless-top
+	margin-top: 0 !important
+
+.is-marginless-bottom
+	margin-bottom: 0 !important
+
+// VISIBILITY
+.is-seo-hidden
+	display: block
+	opacity: 0
+	width: 0
+	height: 0
+	border: none
+
+.is-disabled
+	pointer-events: none
+
+=notch
+	display: block
+	height: 4px
+	width: 2rem
+	background: grey(10)
+
+.notch
+	+notch
+.has-notch-below,
+.has-notch-below-centered,
+	&:after
+		content: ""
+		margin-top: 1rem
+		+notch
+
+	&-centered:after
+		margin-left: auto
+		margin-right: auto
+
+a.is-link-wrapper
+	text-decoration: none
+	color: inherit
+
+=underline
+	display: inline-block
+	padding-bottom: .25rem
+	border-bottom: 1px solid lighten($color-links, 20)
+	
+.is-underlined
+	+underline
+
+.is-accented
+	color: $color-accent !important
+
+a.link
+	text-decoration: none
+	+underline
+
+	&:hover
+		border-color: $color-links-hover
+
+.logo
+	width: 15vw

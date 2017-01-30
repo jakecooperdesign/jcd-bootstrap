@@ -1,0 +1,45 @@
+*
+	box-sizing: border-box
+
+html, body 
+	min-height: 100%
+	min-width: 100%
+	font-family: $font-body
+	+mobile
+		font-size: 90%
+
+body
+	line-height: $line-height
+
+figure
+	padding: 0
+	margin: 0
+
+	figcaption
+		padding: .5rem 0 
+		text-align: right
+		+font-level(0)
+		font-style: italic
+		color: grey(50)
+
+img
+	display: inline-block
+	max-width: 100%
+
+a
+	color: $color-links 
+	+transition-all(.2s, linear)
+	
+	&:hover
+		color: $color-links-hover
+
+ul li
+	padding: .25rem 0
+	margin: 0
+
+button
+	+button-base
+	+button
+
+	&:focus
+		outline: none

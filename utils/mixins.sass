@@ -1,0 +1,62 @@
+=transition-all($pace: $pace, $easing: $easing)
+  transition: all $pace $easing
+
+=serif
+  font-family: $font-serif !important
+
+=sans
+  font-family: $font-sans !important
+
+=heading
+  font-family: $font-headings !important
+
+=clearfix
+  &:after
+    clear: both
+    content: " "
+    display: table
+
+=overlay($offset: 0)
+  position: absolute
+  top: $offset
+  bottom: $offset
+  left: $offset
+  right: $offset
+
+=render-directional-property($property, $value, $has_amplifier: true)
+  +apply-directional-properties($property, $value)
+  @if $has_amplifier
+    +apply-directional-properties($property, $value * 2, '-large')
+    +apply-directional-properties($property, $value / 2, '-small')
+    +apply-directional-properties($property, $value / 4, '-xs')
+
+=apply-directional-properties($property, $value, $suffix: null)
+  .has-#{$property}#{$suffix}
+    #{$property}: $value
+  .has-#{$property}-vert#{$suffix}
+    #{$property}-top: $value
+    #{$property}-bottom: $value
+  .has-#{$property}-horiz#{$suffix}
+    #{$property}-left: $value
+    #{$property}-right: $value
+  $directions: ('top','bottom','left','right')
+  @each $direction in $directions
+    .has-#{$property}-#{$direction}#{$suffix}
+      #{$property}-#{$direction}: $value
+
+=button-base($padding: $button-pad)
+  display: inline-block
+  text-decoration: none
+  border-radius: $button-radius
+  padding: $padding
+  +transition-all
+
+  &:hover
+    cursor: pointer
+
+=button($color: grey(5), $hover: false, $border: false)
+  background-color: if($hover or $border, transparent, $color)
+  border: 2px solid if($border, $color, transparent)
+  &:hover
+    background-color: if($hover, $color, darken($color, 5%))
+    border-color: if($hover, $color, darken($color, 5%))

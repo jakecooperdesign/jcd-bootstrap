@@ -1,0 +1,15 @@
+.has-anim-slide-down,
+.is-anim-trigger .has-anim-slide-down-triggered
+	+transition-all
+	transform: translateY(-15%)
+
+.has-anim-slide-down:hover,
+.is-anim-trigger:hover .has-anim-slide-down-triggered
+	transform: translateY(0)
+
+.has-anim-reveal
+	+transition-all
+	opacity: 0
+
+	&:hover
+		opacity: 1

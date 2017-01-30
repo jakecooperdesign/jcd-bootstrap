@@ -1,0 +1,79 @@
+=tracked-caps
+	text-transform: uppercase
+	letter-spacing: $spacing-tracked !important
+
+.is-tracked-caps
+	+tracked-caps
+
+.is-caps
+	text-transform: uppercase
+
+.is-small
+	font-size: .65rem
+
+.is-style-normal
+	font-style: normal
+
+=small-caps($size: .75em, $weight: bold)
+	+tracked-caps
+	font-size: $size
+	font-weight: $weight
+	font-family: $font-sans
+
+=font-level($level: 1, $ratio: 1.3333)
+	font-size: fs($level, $ratio)
+
+.is-hxl,
+h1, .is-h1,
+h2, .is-h2,
+h3, .is-h3,
+h4, .is-h4
+	font-family: $font-headings
+	font-weight: 500
+	line-height: 1.2
+	letter-spacing: -0.03rem
+
+.is-hxl
+	+font-level(4)
+
+h1, .is-h1
+	+font-level(3)
+h2, .is-h2
+	+font-level(2)
+h3, .is-h3
+	+font-level(1)
+h4, .is-h4
+	+font-level(0)
+	color: grey(50)
+h5, .is-h5
+	+font-level(-1)
+	color: grey(50)
+h6, .is-h6
+	+font-level(-2)
+	color: grey(50)
+
+.small-caps
+	+small-caps
+	
+.label
+	display: block
+	margin-bottom: 0
+	color: grey(40)
+	+small-caps(.7rem, 400)
+
+p,h1,h2,h3,h4,h5,h6,ul,ol,img,figure,video
+	margin: 1rem 0
+
+.has-leading
+	line-height: 2.25
+
+.lead
+	+mobile
+		font-size: 1.25em
+	+font-level(1)
+	font-weight: 400
+	color: grey(75)
+	line-height: 1.6
+
+.is-bold
+	font-weight: 700
