@@ -14,6 +14,9 @@
 .is-style-normal
 	font-style: normal
 
+.is-weight-light
+	font-weight: 200 !important
+
 =small-caps($size: .75em, $weight: bold)
 	+tracked-caps
 	font-size: $size
@@ -29,9 +32,9 @@ h2, .is-h2,
 h3, .is-h3,
 h4, .is-h4
 	font-family: $font-headings
-	font-weight: 500
-	line-height: 1.2
-	letter-spacing: -0.03rem
+	font-weight: 700
+	line-height: $line-height-headings
+	// letter-spacing: -0.03rem
 
 .is-hxl
 	+font-level(4)
