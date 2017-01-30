@@ -1,15 +1,23 @@
+=anim-before
+	&,
+	.is-anim-trigger &-triggered
+		+transition-all
+		@content
+
+=anim-after
+	&:hover,
+	.is-anim-trigger:hover &-triggered
+		@content
+
+
 .has-anim-slide-down,
-.is-anim-trigger .has-anim-slide-down-triggered
-	+transition-all
-	transform: translateY(-15%)
+	+anim-before
+		transform: translateY(-15%)
+	+anim-after
+		transform: translateY(0)
 
-.has-anim-slide-down:hover,
-.is-anim-trigger:hover .has-anim-slide-down-triggered
-	transform: translateY(0)
-
-.has-anim-reveal
-	+transition-all
-	opacity: 0
-
-	&:hover
+.has-anim-reveal,
+	+anim-before
+		opacity: 0
+	+anim-after
 		opacity: 1
