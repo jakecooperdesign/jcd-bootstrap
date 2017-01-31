@@ -16,19 +16,22 @@ textarea
 		box-shadow: none
 		outline: none
 
-input[type="submit"]
-	border-color: grey(85)
-	background: grey(75)
-	color: white
+input[type="submit"],
+input[type="button"]
+	+button-base
+	+button
+	+has-hover
 
 	&:hover,
 	&:focus
 		background-color: black
+		color: white
 
-form label
+label
 	cursor: pointer
 
-form label:not(.checkbox)
+
+label:not(.checkbox)
 	display: inline-block
 	margin-bottom: .5rem
 	+small-caps

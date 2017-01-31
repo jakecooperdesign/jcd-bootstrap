@@ -5,8 +5,14 @@
 .is-wide
 	width: 100%
 
+.has-shadow
+	box-shadow: $shadow
+
 .circle
 	border-radius: 50% !important
+
+.has-round-corners
+	border-radius: $button-radius
 
 // POSITIONING
 .is-clearfix
@@ -141,3 +147,10 @@ a.link
 	height: 3px
 	display: block
 	background: grey(10)
+
+=has-hover
+	&:hover
+		cursor: pointer
+
+.has-hover
+	+has-hover
