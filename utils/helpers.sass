@@ -59,13 +59,16 @@
 
 // TEXT
 .has-text-centered
-	text-align: center
+	+bp-responsive
+		text-align: center
 
 .has-text-left
-	text-align: left
+	+bp-responsive
+		text-align: left
 
 .has-text-right
-	text-align: right
+	+bp-responsive
+		text-align: right
 
 .has-text-white
 	color: white !important
@@ -74,9 +77,12 @@
 	color: grey(40) !important
 
 // SIZE MODIFIERS
-+render-directional-property(border, 1px solid grey(10), false)
-+render-directional-property(margin, 4rem)
-+render-directional-property(padding, 4rem)
++render-directional-property(border, $border, false)
++render-directional-property(margin, $base-pad)
++render-directional-property(padding, $base-pad)
+
+.is-paddingless
+	padding: 0 !important
 
 .is-marginless
 	margin: 0 !important
@@ -94,6 +100,10 @@
 	width: 0
 	height: 0
 	border: none
+
+.is-hidden
+	+bp-responsive
+		display: none
 
 .is-disabled
 	pointer-events: none
@@ -154,3 +164,20 @@ a.link
 
 .has-hover
 	+has-hover
+
+.has-transitions
+	+transition-all
+
+.has-touching-borders
+	& + &
+		border-top: $border
+
+	&-horiz + &-horiz
+		border-left: $border
+
+
+$i: 5;
+@while $i < 100 
+	.has-bg-grey-#{$i}
+		background-color: grey($i)
+	$i: $i + 5

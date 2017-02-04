@@ -13,9 +13,13 @@ body
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+small
+	font-size: $font-small
+
 figure
 	padding: 0
 	margin: 0
+	max-width: 100%
 
 	figcaption
 		padding: .5rem 0 
@@ -23,6 +27,10 @@ figure
 		+font-level(0)
 		font-style: italic
 		color: grey(50)
+
+	img
+		display: block
+		margin: 0 auto
 
 img
 	display: inline-block

@@ -9,13 +9,22 @@
 	text-transform: uppercase
 
 .is-small
-	font-size: .65rem
+	font-size: $font-small
+
+.is-em
+	font-style: italic
 
 .is-style-normal
 	font-style: normal
 
 .is-weight-light
 	font-weight: 200 !important
+
+.is-strong
+	font-weight: bold
+
+.has-text-accent
+	color: $color-accent !important
 
 =small-caps($size: .75em, $weight: bold)
 	+tracked-caps
@@ -37,22 +46,29 @@ h4, .is-h4
 	// letter-spacing: -0.03rem
 
 .is-hxl
-	+font-level(4)
+	+bp-responsive
+		+font-level(4)
 
 h1, .is-h1
-	+font-level(3)
+	+bp-responsive
+		+font-level(3)
 h2, .is-h2
-	+font-level(2)
+	+bp-responsive
+		+font-level(2)
 h3, .is-h3
-	+font-level(1)
+	+bp-responsive
+		+font-level(1)
 h4, .is-h4
-	+font-level(0)
-	color: grey(50)
+	+bp-responsive
+		+font-level(0)
+		color: grey(50)
 h5, .is-h5
-	+font-level(-1)
-	color: grey(50)
+	+bp-responsive
+		+font-level(-1)
+		color: grey(50)
 h6, .is-h6
-	+font-level(-2)
+	+bp-responsive
+		+font-level(-2)
 	color: grey(50)
 
 .small-caps

@@ -8,15 +8,34 @@
 	&:hover,
 	.is-anim-trigger:hover &-triggered
 		@content
+.has-anim-bg-light
+	+anim-before
+		background: transparent
 
+	+anim-after
+		background: rgba(0,0,0,0.025)
+		&,
+		& > * 
+			color: black !important
 
-.has-anim-slide-down,
+.has-anim-squish
+	+anim-before
+		max-width: $base-pad/2
+		overflow: hidden
+		opacity: 1
+	+anim-after
+		max-width: 0
+		opacity: 0
+		padding: 0
+
+.has-anim-slide-down
 	+anim-before
 		transform: translateY(-15%)
 	+anim-after
 		transform: translateY(0)
 
-.has-anim-reveal,
+
+.has-anim-reveal
 	+anim-before
 		opacity: 0
 	+anim-after

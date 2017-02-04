@@ -1,3 +1,14 @@
+=bp-responsive
+  &
+    @content
+  @each $size, $bp in $bps
+    &-#{$size}
+      +from($bp)
+        @content
+    &-until-#{$size}
+      +until($bp)
+        @content
+
 =transition-all($pace: $pace, $easing: $easing)
   transition: all $pace $easing
 
@@ -32,17 +43,21 @@
 
 =apply-directional-properties($property, $value, $suffix: null)
   .has-#{$property}#{$suffix}
-    #{$property}: $value
+    +bp-responsive
+      #{$property}: $value
   .has-#{$property}-vert#{$suffix}
-    #{$property}-top: $value
-    #{$property}-bottom: $value
+    +bp-responsive
+      #{$property}-top: $value
+      #{$property}-bottom: $value
   .has-#{$property}-horiz#{$suffix}
-    #{$property}-left: $value
-    #{$property}-right: $value
+    +bp-responsive
+      #{$property}-left: $value
+      #{$property}-right: $value
   $directions: ('top','bottom','left','right')
   @each $direction in $directions
     .has-#{$property}-#{$direction}#{$suffix}
-      #{$property}-#{$direction}: $value
+      +bp-responsive
+        #{$property}-#{$direction}: $value
 
 =button-base($padding: $button-pad)
   display: inline-block
