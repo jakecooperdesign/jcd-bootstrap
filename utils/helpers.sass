@@ -8,21 +8,22 @@
 .has-shadow
 	box-shadow: $shadow
 
+.is-circle,
 .circle
 	border-radius: 50% !important
 
 .has-round-corners
 	border-radius: $button-radius
 
+
 // POSITIONING
+
 .is-clearfix
 	+clearfix
 
-.is-pulled-left
-	float: left
-
-.is-pulled-right
-	float: right
+@each $direction in (left,right)
+	.is-pulled-#{$direction}
+		float: $direction
 
 .is-relative
 	position: relative
@@ -34,7 +35,7 @@
 	+overlay
 
 .is-overlay--pad
-	+overlay(10px)
+	+overlay(1rem)
 
 =cling($layer: 10)
 	position: absolute
@@ -43,40 +44,13 @@
 .is-clung
 	+cling 
 
-	&-top
-		+cling
-		top: 0
-	&-bottom
-		+cling
-		bottom: 0
-	&-left
-		+cling
-		left: 0
-	&-right
-		+cling
-		right: 0
+	@each $direction in (top, bottom, left, right)
+		&-#{$direction}
+			#{$direction}: 0
 
-
-// TEXT
-.has-text-centered
-	+bp-responsive
-		text-align: center
-
-.has-text-left
-	+bp-responsive
-		text-align: left
-
-.has-text-right
-	+bp-responsive
-		text-align: right
-
-.has-text-white
-	color: white !important
-
-.has-text-light
-	color: grey(40) !important
 
 // SIZE MODIFIERS
+
 +render-directional-property(border, $border, false)
 +render-directional-property(margin, $base-pad)
 +render-directional-property(padding, $base-pad)
@@ -93,7 +67,9 @@
 .is-marginless-bottom
 	margin-bottom: 0 !important
 
+
 // VISIBILITY
+
 .is-seo-hidden
 	display: block
 	opacity: 0
@@ -108,14 +84,15 @@
 .is-disabled
 	pointer-events: none
 
-=notch
+=notch($color: grey(10))
 	display: block
 	height: 4px
 	width: 2rem
-	background: grey(10)
+	background: $color
 
 .notch
 	+notch
+
 .has-notch-below,
 .has-notch-below-centered,
 	&:after
@@ -127,7 +104,7 @@
 		margin-left: auto
 		margin-right: auto
 
-a.is-link-wrapper
+.is-link-wrapper
 	text-decoration: none
 	color: inherit
 

@@ -13,7 +13,7 @@
 
 .columns
 	margin: -10px
-	+tablet
+	+from($tablet)
 		display: flex
 		&.has-touching-borders > .column
 			padding-left: 2em
@@ -54,7 +54,7 @@
 			width: ($i / 12) * 100%
 			flex: none
 
-+tablet
++from($tablet)
 	@for $i from 1 through 12
 		.is-#{$i}
 			width: ($i / 12) * 100%
@@ -70,7 +70,7 @@
 	&.is-align-center
 		align-self: center
 
-	+tablet
+	+from($tablet)
 		flex: 1
 		@for $i from 1 through 12
 			.columns > &.is-#{$i}

@@ -1,3 +1,5 @@
+// BP CONTROLS
+
 =from($device)
   @media screen and (min-width: $device)
     @content
@@ -9,6 +11,8 @@
 =between($min, $max)
   @media screen and (min-width: $min) and (max-width: $max - 1px)
     @content
+
+// SPECIFIC BPs
 
 =mobile
   +until($tablet)

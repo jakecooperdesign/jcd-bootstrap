@@ -28,7 +28,7 @@ label.nav-toggle
 	+font-level(1)
 	align-items: stretch
 	justify-content: flex-end
-	+tablet
+	+from($tablet)
 		display: none
 
 .nav-left
@@ -39,7 +39,7 @@ label.nav-toggle
 .nav-right
 	+mobile
 		flex-basis: 100%
-	+tablet
+	+from($tablet)
 		display: flex
 		flex: 1
 		align-items: stretch
@@ -52,7 +52,7 @@ label.nav-toggle
 		max-height: 0vh
 		flex-direction: column
 		+transition-all
-	+tablet
+	+from($tablet)
 		margin: 0 -1em
 
 .nav-item
@@ -65,12 +65,12 @@ label.nav-toggle
 		&:hover
 			opacity: 1
 
-	+tablet
+	+from($tablet)
 		padding: 1em
 
 .nav-directional
 	display: block
-	+tablet
+	+from($tablet)
 		display: flex
 	.nav-prev,
 	.nav-next
@@ -80,7 +80,7 @@ label.nav-toggle
 			text-align: center !important
 
 	.nav-prev + .nav-next
-		+tablet
+		+from($tablet)
 			border-left: none
 
 	.nav-next
