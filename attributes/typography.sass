@@ -65,6 +65,27 @@
 		color: $value !important
 
 
+.is-fs-0
+	font-size: .85rem
+
+@for $i from 1 through 6
+	.is-fs-#{$i}
+		+bp-responsive
+			font-size: fs($i - 1) !important
+
+
+.has-reset-leading
+	line-height: $line-height * 1rem !important
+
+.is-leading-1
+	line-height: 1 !important
+
+.is-leading-2
+	line-height: 1.4 !important
+
+.is-leading-3
+	line-height: 1.8 !important
+
 // HEADINGS
 
 .is-hxl
@@ -76,14 +97,15 @@ $heading-font-level-start: 4
 	h#{$i}, .is-h#{$i}
 		+bp-responsive
 			+font-level($heading-font-level-start - $i)
+			font-weight: $font-headings-weight
 
 +headings-between(1,4, $hxl: true)
 	font-family: $font-headings
-	font-weight: 700
+	letter-spacing: $font-headings-spacing
 	line-height: $line-height-headings
 
 +headings-between(4,6)
-	color: grey(50)
+	color: $color-subheadings
 
 
 // OBJECTS
