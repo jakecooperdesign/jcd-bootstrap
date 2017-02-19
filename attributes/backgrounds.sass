@@ -2,20 +2,12 @@
 	background-position: 50% 50%
 	background-size: cover
 
-.has-bg-gradient
-	background: linear-gradient(45deg, rgba(0,0,255,0.1), rgba(0,0,255,0.05), rgba(0,0,255,0.1), rgba(0,0,255,0.05), rgba(0,0,255,0.1))
-
 .has-bg-fixed
 	background-attachment: fixed
 
-.has-bg-white
-	background-color: white
-
-.has-bg-dark
-	background-color: grey(85)
-
-.has-bg-light
-	background-color: grey(3)
+@each $color, $value in $colors
+	.has-bg-#{$color}
+		background-color: $value
 
 .has-bg-light-transparent
 	background-color: rgba(240, 240, 240, 0.9) 

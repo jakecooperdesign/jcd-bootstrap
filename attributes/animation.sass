@@ -1,3 +1,5 @@
+// MIXINS
+
 =anim-before
 	&,
 	.is-anim-trigger &-triggered
@@ -8,6 +10,10 @@
 	&:hover,
 	.is-anim-trigger:hover &-triggered
 		@content
+
+
+// ANIMATIONS
+
 .has-anim-bg-light
 	+anim-before
 		background: transparent
@@ -33,7 +39,6 @@
 		transform: translateY(-15%)
 	+anim-after
 		transform: translateY(0)
-
 
 .has-anim-reveal
 	+anim-before

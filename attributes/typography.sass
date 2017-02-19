@@ -1,11 +1,5 @@
 // MIXINS
 
-=small-caps($size: .75em, $weight: bold)
-	+tracked-caps
-	font-size: $size
-	font-weight: $weight
-	font-family: $font-sans
-
 =font-level($level: 1, $ratio: 1.3333)
 	font-size: fs($level, $ratio)
 
@@ -16,12 +10,6 @@
 	@for $i from $min through $max
 		h#{$i}, .is-h#{$i}
 			@content
-
-=render-heading-sizes($start: 4)
-	@for $i from 1 through 6
-		h#{$i}, .is-h#{$i}
-			+bp-responsive
-				+font-level($start - $i)
 
 =tracked-caps
 	text-transform: uppercase
@@ -83,7 +71,11 @@
 	+bp-responsive
 		+font-level(4)
 
-+render-heading-sizes
+$heading-font-level-start: 4
+@for $i from 1 through 6
+	h#{$i}, .is-h#{$i}
+		+bp-responsive
+			+font-level($heading-font-level-start - $i)
 
 +headings-between(1,4, $hxl: true)
 	font-family: $font-headings
@@ -96,14 +88,11 @@
 
 // OBJECTS
 
-.small-caps
-	+small-caps
-	
 .label
 	display: block
 	margin-bottom: 0
 	color: grey(40)
-	+small-caps(.7rem, 400)
+	+tracked-caps
 
 .lead
 	+mobile

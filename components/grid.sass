@@ -1,5 +1,5 @@
 .container
-	width: 90%
+	width: $container-base
 	margin-left: auto
 	margin-right: auto
 	display: block
@@ -12,35 +12,22 @@
 		max-width: $widescreen
 
 .columns
-	margin: -10px
-	+from($tablet)
-		display: flex
-		&.has-touching-borders > .column
-			padding-left: 2em
-			padding-right: 2em
-
-			&:not(:last-of-type)
-				border-right: 1px solid grey(10)
-
-.is-wrapped,
-.is-multiline
+	margin: -1 * $column-gutter
 	flex-wrap: wrap
 
-.columns.is-gutterless
-	margin: 0
+	+from($tablet)
+		display: flex
 
-	.column
-		padding: 0
+.columns .column
+	padding-left: $column-gutter
+	padding-right: $column-gutter
 
+	+from($tablet)
+		flex: 1
 
-.is-align-center
-	align-items: center
-
-.is-justified
-	justify-content: space-between
-
-.is-centered
-	justify-content: center
+	@for $i from 1 through $column-count
+		&.is-offset-#{$i}
+			margin-left: ($i / 12) * 100%
 
 .grid
 	display: flex
@@ -49,32 +36,8 @@
 	.grid-item
 		flex: 1
 	
-	@for $i from 1 through 12
-		& > .is-#{$i}
-			width: ($i / 12) * 100%
-			flex: none
-
 +from($tablet)
-	@for $i from 1 through 12
+	@for $i from 1 through $column-count
 		.is-#{$i}
 			width: ($i / 12) * 100%
-
-
-.column
-	padding-left: 10px
-	padding-right: 10px
-
-	&.is-narrow
-		flex: none
-
-	&.is-align-center
-		align-self: center
-
-	+from($tablet)
-		flex: 1
-		@for $i from 1 through 12
-			.columns > &.is-#{$i}
-				flex: none
-
-			.columns > &.is-offset-#{$i}
-				margin-left: ($i / 12) * 100%
+			flex: none !important

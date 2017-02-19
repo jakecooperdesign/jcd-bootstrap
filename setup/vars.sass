@@ -1,10 +1,14 @@
 $tablet: 760px !default
 $desktop: 980px !default
 $widescreen: 1180px !default
+$container-base: 90%
 $container-width-min: 960px !default
+
+$nav-break: $tablet
 
 $bps: ('bpxs': 480px, 'sm': $tablet, 'md': $desktop, 'lg': $widescreen ) !default
 
+$base-font-small: 87.5%
 $font-sans: 'Lato', Helevetica, Arial, sans-serif !default
 $font-serif: 'Libre Franklin', Baskerville, Georgia, Times, serif !default
 $font-headings: $font-serif !default
@@ -24,13 +28,17 @@ $color-dark: grey(85) !default
 $color-light: grey(50) !default
 $color-links: $color-light !default
 $color-links-hover: transparentize($color-links, 0.25) !default
-$colors: (white: white, light: grey(40), grey: grey(65), dark: grey(85), black: black)
+
+$colors: (white: white, offwhite: grey(3), light: grey(40), grey: grey(65), dark: grey(85), black: black, accent: $color-accent, primary: $color-primary)
 
 $button-radius: .25rem !default
 $button-pad: 1em 1.25em !default
 $button-pad-small: .5em .65em !default
 $button-border-width: 1px !default
 $base-pad: 4rem !default
+
+$column-gutter: 16px
+$column-count: 12
 
 $border: 1px solid grey(10) !default
 

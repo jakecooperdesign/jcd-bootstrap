@@ -11,6 +11,13 @@
       +until($bp)
         @content
 
+
+// ANIMATIONS
+
+=transition-all($pace: $pace, $easing: $easing)
+  transition: all $pace $easing
+
+
 // BUTTONS
 
 =button-base($padding: $button-pad)
@@ -29,24 +36,6 @@
   &:hover
     background-color: if($hover, $color, darken($color, 5%))
     border-color: if($hover, $color, darken($color, 5%))
-
-
-// ANIMATIONS
-
-=transition-all($pace: $pace, $easing: $easing)
-  transition: all $pace $easing
-
-
-// FONTS
-
-=serif
-  font-family: $font-serif !important
-
-=sans
-  font-family: $font-sans !important
-
-=heading
-  font-family: $font-headings !important
 
 
 // POSITIONING

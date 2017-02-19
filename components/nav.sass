@@ -6,10 +6,12 @@ nav a
 	flex-wrap: wrap
 	align-items: center
 
-.nav-brand
-	+font-level(2)
-	+mobile
-		+font-level(1)
+.nav-toggle
+	flex: 1
+	margin: 0
+	text-align: right
+	+from($nav-break)
+		display: none !important
 
 .nav-toggle-input
 	display: none
@@ -20,76 +22,37 @@ nav a
 		opacity: 1
 		padding: 1em 0
 
-label.nav-toggle
-	display: flex
-	flex: 1
-	margin: 0
-	padding: 0
-	+font-level(1)
-	align-items: stretch
-	justify-content: flex-end
-	+from($tablet)
-		display: none
-
-.nav-left
-	display: flex
-	align-items: stretch
-	justify-content flex-start
-
 .nav-right
-	+mobile
+	+until($nav-break)
 		flex-basis: 100%
-	+from($tablet)
+	+from($nav-break)
 		display: flex
 		flex: 1
 		align-items: stretch
 		justify-content: flex-end
 
 .nav-menu 
-	+mobile
-		display: flex
-		opacity: 0
-		max-height: 0vh
+	+until($nav-break)
+		display: none
 		flex-direction: column
-		+transition-all
-	+from($tablet)
-		margin: 0 -1em
 
 .nav-item
-	padding: 1em 0
 	text-decoration: none
 
-	.has-dark-bg &
-		color: white
-		opacity: .75
-		&:hover
-			opacity: 1
+// .nav-directional
+// 	display: block
+// 	+from($tablet)
+// 		display: flex
+// 	.nav-prev,
+// 	.nav-next
+// 		flex: 1
+// 		border: $border
+// 		+mobile
+// 			text-align: center !important
 
-	+from($tablet)
-		padding: 1em
+// 	.nav-prev + .nav-next
+// 		+from($tablet)
+// 			border-left: none
 
-.nav-directional
-	display: block
-	+from($tablet)
-		display: flex
-	.nav-prev,
-	.nav-next
-		flex: 1
-		border: $border
-		+mobile
-			text-align: center !important
-
-	.nav-prev + .nav-next
-		+from($tablet)
-			border-left: none
-
-	.nav-next
-		text-align: right
-
-.nav-social
-	+font-level(1)
-	// margin-top: 1.5rem
-
-	.nav-item
-		padding: 0
-		padding-right: 1em
+// 	.nav-next
+// 		text-align: right
