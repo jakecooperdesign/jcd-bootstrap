@@ -36,8 +36,8 @@
 	.grid-item
 		flex: 1
 	
-+from($tablet)
-	@for $i from 1 through $column-count
-		.is-#{$i}
+@for $i from 1 through $column-count
+	.is-#{$i}
+		+bp-responsive
 			width: ($i / 12) * 100%
 			flex: none !important
