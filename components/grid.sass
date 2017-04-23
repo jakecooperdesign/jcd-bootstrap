@@ -4,18 +4,18 @@
 	margin-right: auto
 	display: block
 
-	+from($desktop)
+	+from($container-width-min + $container-buffer * 2)
 		width: 100%
 		max-width: $container-width-min
 
-	+from(1200px)
-		max-width: $widescreen
+	+from($container-width-max + $container-buffer * 2)
+		max-width: $container-width-max
 
 .columns
-	margin: -1 * $column-gutter
-	flex-wrap: wrap
-
-	+from($tablet)
+	+bp-responsive
+		margin-left: -1 * $column-gutter
+		margin-right: -1 * $column-gutter
+		flex-wrap: wrap
 		display: flex
 
 .columns .column
@@ -25,10 +25,6 @@
 	+from($tablet)
 		flex: 1
 
-	@for $i from 1 through $column-count
-		&.is-offset-#{$i}
-			margin-left: ($i / 12) * 100%
-
 .grid
 	display: flex
 	flex-wrap: wrap
@@ -37,6 +33,10 @@
 		flex: 1
 	
 @for $i from 1 through $column-count
+	&.is-offset-#{$i}
+		+bp-responsive
+			margin-left: ($i / 12) * 100%
+
 	.is-#{$i}
 		+bp-responsive
 			width: ($i / 12) * 100%

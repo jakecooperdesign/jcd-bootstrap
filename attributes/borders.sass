@@ -1,0 +1,12 @@
+$directions: (top left bottom right)
+$sizes: ('default': 1px, 'medium': 4px, 'large': 8px)
+
+@each $color, $hex in $border-colors
+	@each $size, $width in $sizes
+		@each $direction in $directions
+			@if $size == 'default'
+				.has-border-#{$direction}-#{$color}
+					border-#{$direction}: $width solid $hex
+			@else
+				.has-border-#{$direction}-#{$color}-#{$size}
+					border-#{$direction}: $width solid $hex

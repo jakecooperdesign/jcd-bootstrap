@@ -1,0 +1,20 @@
+// HEADINGS
+
+$heading-font-level-start: 4
+
+@for $i from 1 through 6
+	h#{$i}, .is-h#{$i}
+		+bp-responsive
+			+font-level($heading-font-level-start - $i)
+			font-weight: $font-headings-weight
+
+
+@for $i from 1 through 4
+	h#{$i}, .is-h#{$i}
+		font-family: $font-headings
+		letter-spacing: $font-headings-spacing
+		line-height: $line-height-headings
+
+@for $i from 4 through 6
+	h#{$i}, .is-h#{$i}
+		color: $color-subheadings

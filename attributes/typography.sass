@@ -3,14 +3,6 @@
 =font-level($level: 1, $ratio: 1.3333)
 	font-size: fs($level, $ratio)
 
-=headings-between($min,$max, $hxl: false)
-	@if $hxl
-		.is-hxl
-			@content
-	@for $i from $min through $max
-		h#{$i}, .is-h#{$i}
-			@content
-
 =tracked-caps
 	text-transform: uppercase
 	letter-spacing: $spacing-tracked !important
@@ -18,52 +10,41 @@
 
 // HELPERS
 
-.is-tracked-caps
-	+tracked-caps
-
-.is-caps
-	text-transform: uppercase !important
-
-.is-small
-	font-size: $font-small !important
-
-.is-light,
-.is-weight-light
-	font-weight: 200 !important
-
-.is-strong,
-.is-bold
-	font-weight: bold !important
-	font-weight: 700 !important
-
-.is-em
-	font-style: italic !important
-
-.is-normal,
-.is-style-normal
-	font-style: normal !important
-
-.is-color-accent,
-.has-text-accent
-	color: $color-accent !important
-
-.has-leading
-	line-height: 2.25 !important
-
-.has-text-centered
-	+bp-responsive
-		text-align: center
-
 @each $direction in (left,right,center)
 	.has-text-#{$direction}
 		+bp-responsive
 			text-align: $direction
 
+.is-caps
+	text-transform: uppercase !important
+
+.is-tracked-caps
+	+tracked-caps
+
+=underline($weight: 1px, $color: lighten($color-links, 20))
+	display: inline-block
+	padding-bottom: .25rem
+	border-bottom: $weight solid $color
+	
+.is-underlined
+	+underline
+
+// WEIGHTS
+
+@each $weight in (100,200,300,400,500,600,700,800,900)
+	.is-weight-#{$weight}
+		font-weight: $weight !important
+
+.is-normal,
+.is-style-normal
+	font-style: normal !important
+
 @each $color,$value in $colors
 	.is-color-#{$color},
-	.has-text-#{$color}
+	.is-color-#{$color}-hover:hover
 		color: $value !important
 
+// FONT SIZE
 
 .is-fs-0
 	font-size: .85rem
@@ -73,59 +54,11 @@
 		+bp-responsive
 			font-size: fs($i - 1) !important
 
+// LEADING
 
-.has-reset-leading
-	line-height: $line-height * 1rem !important
+$leadings: 1, 1.4, 1.8, 2.125
 
-.is-leading-1
-	line-height: 1 !important
-
-.is-leading-2
-	line-height: 1.4 !important
-
-.is-leading-3
-	line-height: 1.8 !important
-
-// HEADINGS
-
-.is-hxl
-	+bp-responsive
-		+font-level(4)
-
-$heading-font-level-start: 4
-@for $i from 1 through 6
-	h#{$i}, .is-h#{$i}
-		+bp-responsive
-			+font-level($heading-font-level-start - $i)
-			font-weight: $font-headings-weight
-
-+headings-between(1,4, $hxl: true)
-	font-family: $font-headings
-	letter-spacing: $font-headings-spacing
-	line-height: $line-height-headings
-
-+headings-between(4,6)
-	color: $color-subheadings
-
-
-// OBJECTS
-
-.label
-	display: block
-	margin-bottom: 0
-	color: grey(40)
-	+tracked-caps
-
-.lead
-	+mobile
-		font-size: 1.25em
-	+font-level(1)
-	font-weight: 400
-	color: grey(75)
-	line-height: 1.6
-
-
-// DEFAULTS
-
-p,h1,h2,h3,h4,h5,h6,ul,ol,img,figure,video
-	margin: 1rem 0
+@each $leading in $leadings
+	$i: index($leadings, $leading)
+	.is-leading-#{$i}
+		line-height: $leading !important

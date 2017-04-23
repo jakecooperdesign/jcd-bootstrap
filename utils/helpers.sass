@@ -1,160 +1,40 @@
-// SIZING
-.is-vh
-	height: 100vh
-
-.is-wide
-	width: 100%
-
-.has-shadow
-	box-shadow: $shadow
-
-.is-circle,
-.circle
-	border-radius: 50% !important
-
-.has-round-corners
-	border-radius: $button-radius
-
-
-// POSITIONING
-
-.is-clearfix
-	+clearfix
-
-@each $direction in (left,right)
-	.is-pulled-#{$direction}
-		float: $direction
-
-.is-relative
-	position: relative
-
-.is-block
-	display: block
-
-.is-overlay
-	+overlay
-
-.is-overlay--pad
-	+overlay(1rem)
-
-=cling($layer: 10)
-	position: absolute
-	z-index: $layer
-
-.is-clung
-	+cling 
-
-	@each $direction in (top, bottom, left, right)
-		&-#{$direction}
-			#{$direction}: 0
-
-
 // SIZE MODIFIERS
 
 +render-directional-property(border, $border, false)
 +render-directional-property(margin, $base-pad)
 +render-directional-property(padding, $base-pad)
 
-.is-paddingless
-	padding: 0 !important
+@each $property in (margin, padding)
+	.is-#{$property}less
+		+bp-responsive
+			#{$property}: 0 !important
 
-.is-marginless
-	margin: 0 !important
-
-.is-marginless-top
-	margin-top: 0 !important
-
-.is-marginless-bottom
-	margin-bottom: 0 !important
-
-
-// VISIBILITY
-
-.is-seo-hidden
-	display: block
-	opacity: 0
-	width: 0
-	height: 0
-	border: none
-
-.is-hidden
-	+bp-responsive
-		display: none !important
+	@each $direction in (top,bottom,left,right)
+		.is-#{$property}less-#{$direction}
+			+bp-responsive
+				#{$property}-#{$direction}: 0 !important
 
 .is-disabled
 	pointer-events: none
-
-=notch($color: grey(10))
-	display: block
-	height: 4px
-	width: 2rem
-	background: $color
-
-.notch
-	+notch
-
-.has-notch-below,
-.has-notch-below-centered,
-	&:after
-		content: ""
-		margin-top: 1rem
-		+notch
-
-	&-centered:after
-		margin-left: auto
-		margin-right: auto
 
 .is-link-wrapper
 	text-decoration: none
 	color: inherit
 
-=underline
-	display: inline-block
-	padding-bottom: .25rem
-	border-bottom: 1px solid lighten($color-links, 20)
-	
-.is-underlined
-	+underline
-
-.is-accented
-	color: $color-accent !important
-
-a.link
-	text-decoration: none
-	+underline
-
-	&:hover
-		border-color: $color-links-hover
-
-.logo
-	width: 15vw
-
-.separator
-	width: 2.5rem
-	height: 3px
-	display: block
-	background: grey(10)
-
-=has-hover
-	&:hover
-		cursor: pointer
-
-.has-hover
-	+has-hover
-
 .has-transitions
 	+transition-all
 
-.has-touching-borders
-	& + &
-		border-top: $border
+@each $property, $value in (border: $border, margin: $base-pad)
+	.has-touching-#{$property}
+		& + &
+			#{$property}-top: $value
+		&-horiz + &-horiz
+			#{$property}-left: $value
 
-	&-horiz + &-horiz
-		border-left: $border
+.has-margin-auto
+    margin-left: auto
+    margin-right: auto
 
-
-$i: 5;
-@while $i < 100 
-	.has-bg-grey-#{$i}
-		background-color: grey($i)
-	$i: $i + 5
+@each $height, $value in (behind: -1, above: 10, top: 1000)
+	.is-#{$height}
+	    z-index: $value

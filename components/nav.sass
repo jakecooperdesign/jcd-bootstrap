@@ -39,20 +39,15 @@ nav a
 .nav-item
 	text-decoration: none
 
-// .nav-directional
-// 	display: block
-// 	+from($tablet)
-// 		display: flex
-// 	.nav-prev,
-// 	.nav-next
-// 		flex: 1
-// 		border: $border
-// 		+mobile
-// 			text-align: center !important
+.nav-directional
+	display: block
+	+from($tablet)
+		display: flex
+	.nav-prev,
+	.nav-next
+		flex: 1
+		+mobile
+			text-align: center !important
 
-// 	.nav-prev + .nav-next
-// 		+from($tablet)
-// 			border-left: none
-
-// 	.nav-next
-// 		text-align: right
+	.nav-next
+		text-align: right

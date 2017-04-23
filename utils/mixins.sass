@@ -11,6 +11,17 @@
       +until($bp)
         @content
 
+=bp-responsive-touching
+  & + &
+    @content
+  @each $size, $bp in $bps
+    &-#{$size} + &-#{$size}
+      +from($bp)
+        @content
+    &-until-#{$size} + &-until-#{$size}
+      +until($bp)
+        @content
+
 
 // ANIMATIONS
 
@@ -75,8 +86,16 @@
     +bp-responsive
       #{$property}-left: $value
       #{$property}-right: $value
-  $directions: ('top','bottom','left','right')
-  @each $direction in $directions
+  .has-touching-#{$property}#{$suffix}
+  		+bp-responsive-touching
+  			#{$property}-top: $value
+  			
+  @each $direction in ('top','bottom','left','right')
     .has-#{$property}-#{$direction}#{$suffix}
       +bp-responsive
         #{$property}-#{$direction}: $value
+
+// TYPOGRAPHY
+
+=font-size($level)
+  font-size: fs($level - 1)

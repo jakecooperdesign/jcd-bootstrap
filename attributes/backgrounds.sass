@@ -2,15 +2,21 @@
 	background-position: 50% 50%
 	background-size: cover
 
-.has-bg-fixed
-	background-attachment: fixed
-
 @each $color, $value in $colors
 	.has-bg-#{$color}
 		background-color: $value
 
-.has-bg-light-transparent
-	background-color: rgba(240, 240, 240, 0.9) 
+	.has-bg-#{$color}-hover
+		+transition-all
+		&:hover
+			background-color: $color !important
 
-.has-bg-accent-transparent
-	background-color: transparentize($color-accent, 0.3) 
+$blend-modes: luminosity overlay
+
+@each $mode in $blend-modes
+	.is-blended-#{$mode}
+		background-blend-mode: #{$mode}
+
+@each $value in (2,3,5,10,15,20,85,90,95)
+	.has-bg-grey-#{$value}
+		background-color: grey($value)

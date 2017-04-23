@@ -14,6 +14,33 @@
 
 // ANIMATIONS
 
+.has-anim-fade-out-light
+	+anim-before
+		opacity: 1
+	+anim-after
+		opacity: 0.75
+
+.has-anim-grow
+	+anim-before
+		transform: scale(1)
+	+anim-after
+		transform: scale(1.05)
+
+.has-anim-rotate
+	+anim-before
+		transform: rotate(0deg)
+	+anim-after
+		transform: rotate(90deg)
+
+.has-anim-bg-white
+	+anim-before
+		background: transparent
+
+	+anim-after
+		background: white !important
+		color: black !important
+
+
 .has-anim-bg-light
 	+anim-before
 		background: transparent
@@ -45,3 +72,22 @@
 		opacity: 0
 	+anim-after
 		opacity: 1
+
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
++keyframes(flashing)
+	0%
+		opacity: 1
+	50%
+		opacity: .25
+
+.is-flashing
+	animation: flashing 1s infinite

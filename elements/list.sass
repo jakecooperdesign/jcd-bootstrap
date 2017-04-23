@@ -1,14 +1,42 @@
-ul,
-.list
-	margin: 0
-	padding: 0
+.is-unstyled,
+.is-inline
+	list-style: none
+	padding-left: 0
+	padding-right: 0
 
-	&.is-unstyled,
-	&.is-inline
-		list-style: none
-		padding-left: 0
-		padding-right: 0
-	
-	&.is-inline li 
-		display: inline-block
-		margin: .5em
+.is-inline li 
+	display: inline-block
+	margin: .5em 0
+
+	& + li
+		margin-left: .5em
+
+.is-numbered
+	counter-reset: list
+	list-style: none
+
+.has-number
+	position: relative
+
+.has-number:before	
+	counter-increment: list
+	content: "0"counter(list)
+	font-family: $font-sans
+	display: inline-block
+
+.has-number:before
+	position: absolute
+	top: 0
+	left: 0
+
+.has-number-huge:before
+	font-weight: lighter
+	line-height: 0
+	top: 50%
+	font-size: 3em
+	opacity: 0.05
+	color: $color-accent
+	transform: translate(-30%,-60%)
+
+.has-block-numbers li:before
+	display: block
