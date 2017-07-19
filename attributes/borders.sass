@@ -3,6 +3,13 @@ $sizes: ('default': 1px, 'medium': 4px, 'large': 8px)
 
 @each $color, $hex in $border-colors
 	@each $size, $width in $sizes
+		@if $size == 'default'
+			.has-border-#{$color}
+				border: $width solid $hex
+		@else
+			.has-border-#{$color}-#{$size}
+				border: $width solid $hex
+
 		@each $direction in $directions
 			@if $size == 'default'
 				.has-border-#{$direction}-#{$color}

@@ -13,12 +13,14 @@
 @each $display in (block, inline-block)
 	.is-#{$display}
 		+bp-responsive
-			display: $display
+			display: $display !important
 
 .is-overlay
 	+overlay
 
 @each $direction in (top, bottom, left, right)
 	.is-clung-#{$direction}
-		#{$direction}: 0
+		+bp-responsive
+			position: absolute
+			#{$direction}: 0
 

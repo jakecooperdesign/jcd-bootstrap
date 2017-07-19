@@ -32,9 +32,15 @@
 			#{$property}-left: $value
 
 .has-margin-auto
-    margin-left: auto
-    margin-right: auto
+	+bp-responsive
+	    margin-left: auto
+	    margin-right: auto
 
 @each $height, $value in (behind: -1, above: 10, top: 1000)
 	.is-#{$height}
 	    z-index: $value
+
+@each $width in (100,200,300,400)
+	.is-width-#{$width}
+		+bp-responsive
+			width: ($width + 0px) !important

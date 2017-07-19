@@ -4,16 +4,19 @@
 
 @each $color, $value in $colors
 	.has-bg-#{$color}
-		background-color: $value
+		background-color: $value !important
 
 	.has-bg-#{$color}-hover
 		+transition-all
 		&:hover
-			background-color: $color !important
+			background-color: $value !important
 
 $blend-modes: luminosity overlay
 
 @each $mode in $blend-modes
+	.is-mix-blended-#{$mode}
+		mix-blend-mode: #{$mode}
+
 	.is-blended-#{$mode}
 		background-blend-mode: #{$mode}
 

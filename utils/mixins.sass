@@ -42,11 +42,13 @@
     cursor: pointer
 
 =button($color: grey(5), $hover: false, $border: false)
-  background-color: if($hover or $border, transparent, $color)
+  color: white
+  background-color: $color
   border: $button-border-width solid if($border, $color, transparent)
   &:hover
-    background-color: if($hover, $color, darken($color, 5%))
-    border-color: if($hover, $color, darken($color, 5%))
+    color: white
+    background-color: if($hover, $hover, darken($color, 15%))
+    border-color: if($hover, $hover, darken($color, 15%))
 
 
 // POSITIONING
@@ -77,23 +79,23 @@
 =apply-directional-properties($property, $value, $suffix: null)
   .has-#{$property}#{$suffix}
     +bp-responsive
-      #{$property}: $value
+      #{$property}: $value !important
   .has-#{$property}-vert#{$suffix}
     +bp-responsive
-      #{$property}-top: $value
-      #{$property}-bottom: $value
+      #{$property}-top: $value !important
+      #{$property}-bottom: $value !important
   .has-#{$property}-horiz#{$suffix}
     +bp-responsive
-      #{$property}-left: $value
-      #{$property}-right: $value
+      #{$property}-left: $value !important
+      #{$property}-right: $value !important
   .has-touching-#{$property}#{$suffix}
   		+bp-responsive-touching
-  			#{$property}-top: $value
+  			#{$property}-top: $value !important
   			
   @each $direction in ('top','bottom','left','right')
     .has-#{$property}-#{$direction}#{$suffix}
       +bp-responsive
-        #{$property}-#{$direction}: $value
+        #{$property}-#{$direction}: $value !important
 
 // TYPOGRAPHY
 

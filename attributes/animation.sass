@@ -3,13 +3,15 @@
 =anim-before
 	&,
 	.is-anim-trigger &-triggered
-		+transition-all
-		@content
+		+from($desktop)
+			+transition-all
+			@content
 
 =anim-after
 	&:hover,
 	.is-anim-trigger:hover &-triggered
-		@content
+		+from($desktop)
+			@content
 
 
 // ANIMATIONS
