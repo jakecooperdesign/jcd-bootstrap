@@ -1,18 +1,10 @@
-$border-sizes: ('default': 1px, 'medium': 4px, 'large': 8px)
-
 @each $color, $hex in $colors
-	@each $size, $width in $border-sizes
-		@if $size == 'default'
-			.has-border-#{$color}
-				border: $width solid $hex
-		@else
-			.has-border-#{$color}-#{$size}
-				border: $width solid $hex
 
-		@each $direction in (top left bottom right)
-			@if $size == 'default'
-				.has-border-#{$direction}-#{$color}
-					border-#{$direction}: $width solid $hex
-			@else
-				.has-border-#{$direction}-#{$color}-#{$size}
-					border-#{$direction}: $width solid $hex
+	@each $size, $width in $border-sizes
+		$size: toClassName($size, 'default')
+
+		@each $direction in ('all', 'top', 'left', 'bottom', 'right')
+			$direction: toClassName($direction, 'all')
+
+			.has-border#{$direction}-#{$color}#{$size}
+				border#{$direction}: $width solid $hex

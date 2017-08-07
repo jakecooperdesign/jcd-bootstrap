@@ -14,3 +14,6 @@
 		$size: $size * (1 + $ratio)
 
 	@return $size
+
+@function toClassName($prop, $default, $return: null, $sep: '-')
+	@return if($prop == $default, $return, $sep + $prop)

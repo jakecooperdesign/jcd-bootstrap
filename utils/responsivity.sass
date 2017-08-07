@@ -1,4 +1,3 @@
-// BP CONTROLS
 =bp-responsive
   &
     @content
@@ -21,33 +20,3 @@
 =between($min, $max)
   @media screen and (min-width: $min) and (max-width: $max - 1px)
     @content
-
-// // SPECIFIC BPs
-
-// =mobile
-//   +until($tablet)
-//     @content
-
-// =tablet
-//   +from($tablet)
-//     @content
-
-// =tablet-only
-//   +between($tablet, $desktop)
-//     @content
-
-// =touch
-//   +until($desktop)
-//     @content
-
-// =desktop
-//   +from($desktop)
-//     @content
-
-// =desktop-only
-//   +between($desktop, $widescreen)
-//     @content
-
-// =widescreen
-//   +from($widescreen)
-//     @content
