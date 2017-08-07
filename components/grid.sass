@@ -26,8 +26,7 @@
 
 .has-vert-centered-children
 	align-items: center
-%flex-none
-	flex: none
+
 
 @for $i from 1 through $grid-count
 	&.is-offset-#{$i}
@@ -35,7 +34,7 @@
 			margin-left: ($i / 12) * 100%
 	
 	.column.is-#{$i}
-		@extend %flex-none
+		@extend .is-flex-none
 	
 	.is-#{$i}
 		+bp-responsive

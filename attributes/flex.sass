@@ -2,15 +2,23 @@
 	+bp-responsive
 		display: flex !important
 
-	&-column
-		display: flex !important
-		flex-direction: column
+.is-flex-none
+	flex: none
 
 .is-flex-expand
 	flex: 1
 
+.is-align-center
+	align-items: center
+
+.is-centered
+	justify-content: center
+
+.is-flex-vert
+		flex-direction: column
+
 .is-narrow
-	flex: 0 !important
+	@extend .is-flex-none
 	
 .is-justified,
 .flex-between 
@@ -18,11 +26,6 @@
 
 .has-flex-centered-contents
 	display: flex
-	align-items: center
-	justify-content: center
+	@extend .is-centered
+	@extend .is-align-center
 
-.is-align-center
-	align-items: center
-
-.is-centered
-	justify-content: center
