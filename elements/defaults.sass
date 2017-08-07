@@ -6,45 +6,29 @@ html, body
 	min-height: 100vh
 	min-width: 100%
 	font-size: $base-font-size
-
-	+mobile
-		font-size: $base-font-small
+	color: $color-text
+	background: $site-bg
 
 body
-	line-height: $line-height
-	font-weight: $font-weight
-	font-family: $font-body
-	color: $base-font-color
+	line-height: $base-line-height
+	font-family: $base-font-family
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-p,h1,h2,h3,h4,h5,h6,ul,ol,img,figure,video
-	margin: 1.5em 0
-
 small,
 .is-small
-	font-size: $font-small !important
+	font-size: $base-font-small !important
 
 strong,
 .is-strong
 	font-weight: bold !important
-	font-weight: 700 !important
 
 em,
 .is-em
 	font-style: italic !important
 
 figure
-	padding: 0
-	margin: 0
 	max-width: 100%
-
-	figcaption
-		padding: .5rem 0 
-		text-align: right
-		+font-level(0)
-		font-style: italic
-		color: grey(50)
 
 	img
 		display: block
@@ -61,25 +45,11 @@ svg
 	width: 100%
 
 a
-	color: $color-links 
+	color: $color-links
 	+transition-all(.2s, linear)
 	
 	&:hover
 		color: $color-links-hover
 
 li
-	padding: .25rem 0
-	margin: 0
-
-button
-	+button-base
-	+button
-
-	&:focus
-		outline: none
-
-cite
-    font-style: normal
-
-p:first-of-type
-	margin-top: 0
+	margin: .25rem 0

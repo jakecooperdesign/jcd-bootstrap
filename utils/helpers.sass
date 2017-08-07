@@ -1,46 +1,30 @@
-// SIZE MODIFIERS
+=transition-all($pace: $base-speed, $easing: $base-easing)
+  transition: all $pace $easing
 
-+render-directional-property(border, $border, false)
-+render-directional-property(margin, $base-pad)
-+render-directional-property(padding, $base-pad)
+.has-transitions
+	+transition-all
 
-@each $property in (margin, padding)
-	.is-#{$property}less
-		+bp-responsive
-			#{$property}: 0 !important
+=clearfix
+  &:after
+    clear: both
+    content: " "
+    display: table
 
-	@each $direction in (top,bottom,left,right)
-		.is-#{$property}less-#{$direction}
-			+bp-responsive
-				#{$property}-#{$direction}: 0 !important
-
-.is-disabled
-	pointer-events: none
+.is-clearfix
+	+clearfix
 
 .is-link-wrapper
 	text-decoration: none
 	color: inherit
 
-.has-transitions
-	+transition-all
-
-@each $property, $value in (border: $border, margin: $base-pad)
-	.has-touching-#{$property}
-		& + &
-			#{$property}-top: $value
-		&-horiz + &-horiz
-			#{$property}-left: $value
+.has-bg-img
+	background-position: 50% 50%
+	background-size: cover
 
 .has-margin-auto
 	+bp-responsive
 	    margin-left: auto
 	    margin-right: auto
 
-@each $height, $value in (behind: -1, above: 10, top: 1000)
-	.is-#{$height}
-	    z-index: $value
-
-@each $width in (100,200,300,400)
-	.is-width-#{$width}
-		+bp-responsive
-			width: ($width + 0px) !important
+.is-rounded
+	border-radius: $button-radius

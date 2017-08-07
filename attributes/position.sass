@@ -1,6 +1,3 @@
-.is-clearfix
-	+clearfix
-
 @each $direction in (left,right)
 	.is-pulled-#{$direction}
 		float: $direction
@@ -15,12 +12,15 @@
 		+bp-responsive
 			display: $display !important
 
-.is-overlay
-	+overlay
-
 @each $direction in (top, bottom, left, right)
 	.is-clung-#{$direction}
 		+bp-responsive
 			position: absolute
 			#{$direction}: 0
 
+.is-overlay
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0

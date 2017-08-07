@@ -1,21 +1,16 @@
 @function grey($amt) 
 	@return darken(white, $amt)
 
-@function getColor($key)
+@function bp($bp)
+	@return map-get($bps, $bp)
+
+@function color($key)
 	@return map-get($colors, $key)
 	
-@function fs($level: 1, $ratio: (1 + 1/3))
+@function fs( $level, $ratio: $font-ratio) 
 	$size: 1rem
 
-	@if $level > 0
-		@for $i from 1 through $level
-			$size: $size * $ratio
-
-	@if $level < 0
-		$ratio: 1.125
-
-		$level: abs($level)
-		@for $i from 1 through $level
-			$size: $size / $ratio
+	@for $i from 1 through $level
+		$size: $size * (1 + $ratio)
 
 	@return $size

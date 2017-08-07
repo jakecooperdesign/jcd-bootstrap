@@ -1,43 +1,42 @@
+
 .container
-	width: $container-base
+	width: $container-small
 	margin-left: auto
 	margin-right: auto
 	display: block
 
-	+from($container-width-min + $container-buffer * 2)
+	+from($container-width + $container-buffer * 2)
 		width: 100%
-		max-width: $container-width-min
+		max-width: $container-width
 
-	+from($container-width-max + $container-buffer * 2)
-		max-width: $container-width-max
+	+from($container-max + $container-buffer * 2)
+		max-width: $container-max
 
 .columns
-	+bp-responsive
-		margin-left: -1 * $column-gutter
-		margin-right: -1 * $column-gutter
-		flex-wrap: wrap
-		display: flex
-
-.columns .column
-	padding-left: $column-gutter
-	padding-right: $column-gutter
-
-	+from($tablet)
-		flex: 1
-
-.grid
-	display: flex
+	margin-left: -1 * $grid-gutter
+	margin-right: -1 * $grid-gutter
 	flex-wrap: wrap
+	display: flex
 
-	.grid-item
+.column
+	+from(bp('sm'))
+		padding-left: $grid-gutter
+		padding-right: $grid-gutter
 		flex: 1
-	
-@for $i from 1 through $column-count
+
+.has-vert-centered-children
+	align-items: center
+%flex-none
+	flex: none
+
+@for $i from 1 through $grid-count
 	&.is-offset-#{$i}
 		+bp-responsive
 			margin-left: ($i / 12) * 100%
-
+	
+	.column.is-#{$i}
+		@extend %flex-none
+	
 	.is-#{$i}
 		+bp-responsive
 			width: ($i / 12) * 100%
-			flex: none !important

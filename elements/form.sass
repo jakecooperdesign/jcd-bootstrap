@@ -1,3 +1,6 @@
+form
+	margin: 2rem 0
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -18,8 +21,6 @@ textarea
 
 input[type="submit"],
 input[type="button"]
-	+button-base
-	+button
 
 	&:hover,
 	&:focus
@@ -36,14 +37,4 @@ label:not(.checkbox)
 	color: grey(50)
 
 .form-group:not(:last-of-type)
-	margin-bottom: 2em
-
-input[type="checkbox"]
-	margin-right: .25rem
-
-.checkbox
-	margin-right: 1.5rem
-	display: block
-
-	&:not(:last-of-type)
-		margin-bottom: .25rem
+	margin-bottom: 2rem

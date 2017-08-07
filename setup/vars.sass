@@ -1,34 +1,28 @@
-$tablet: 760px !default
-$desktop: 980px !default
-$widescreen: 1180px !default
-$container-base: 90% !default
-$container-buffer: 32px !default
-$container-width-min: 960px !default
-$container-width-max: $widescreen !default
-
-$nav-break: $desktop !default
-
-$bps: ('bpxs': 480px, 'sm': $tablet, 'md': $desktop, 'lg': $widescreen ) !default
-
-$fonts: 'Libre+Franklin:400,400i,800,800i|Lato' !default
 $font-sans: 'Lato', Helevetica, Arial, sans-serif !default
 $font-serif: 'Libre Franklin', Baskerville, Georgia, Times, serif !default
-$font-headings: $font-serif !default
-$font-headings: $font-serif !default
-$font-headings-weight: 700 !default
-$font-headings-spacing: -0.02rem !default
-$font-body: $font-sans !default
-$font-weight: normal !default
+$font-ratio: (2/7) !default
 
 $base-font-size: 16px !default
-$base-font-small: 87.5% !default
-$line-height: 1.8 !default
-$font-small: .65em !default
-$spacing-tracked: .175em !default
-$line-height-headings: 1.4 !default
+$base-line-height: 1.8 !default
+$base-font-family: $font-sans !default
+$base-font-small: .875rem !default
 
-$pace: .3s !default
-$easing: ease-in-out !default
+$bp-sm: 480px !default
+$bp-md: 720px !default
+$bp-lg: 960px !default
+
+$bps: ( 'sm': $bp-sm, 'md': $bp-md, 'lg': $bp-lg )
+
+$container-small: 90% !default
+$container-buffer: 32px !default
+$container-width: bp('md') !default
+$container-max: 1200px !default
+
+$grid-gutter: 16px
+$grid-count: 12
+
+$base-speed: 3s !default
+$base-easing: ease-in-out !default
 
 $color-accent: #001a4b !default
 $color-primary: rgb(0,27,140) !default
@@ -36,24 +30,12 @@ $color-dark: grey(85) !default
 $color-light: grey(50) !default
 $color-links: $color-light !default
 $color-links-hover: transparentize($color-links, 0.25) !default
-$color-subheadings: grey(80) !default
+$color-text: grey(90) !default
 
 $colors: (white: white, offwhite: grey(3), light: grey(40), grey: grey(65), dark: grey(85), black: black, accent: $color-accent, primary: $color-primary) !default
 
-$base-font-color: $color-primary !default
-$site-background: none !default
+$site-bg: none !default
 
 $button-radius: .25rem !default
-$button-pad: 1em 1.25em !default
-$button-pad-small: .7em 1em !default
-$button-pad-xs: .5em .65em !default
-$button-border-width: 1px !default
-$base-pad: 4rem !default
-
-$column-gutter: 16px
-$column-count: 12
-
-$border: 1px solid grey(10) !default
-
-$shadow: 0px 1px 6px rgba(0,0,0,0.1) !default
-$shadow-large: 0px 2px 12px rgba(0,0,0,0.05) !default
+$button-padding: .75em 1em !default
+$button-padding-small: .7em 1em !default

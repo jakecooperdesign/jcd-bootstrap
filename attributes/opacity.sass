@@ -1,23 +1,22 @@
 // VISIBILITY
 
-.is-transparent
-	opacity: 0.5
-
-.is-transparent-light
-	opacity: 0.175
-
-.is-transparent-semi
-	opacity: 0.75
+$opacities: ('default': 0.5, 'semi': 0.75, 'light': 0.175)
+@each $opacity, $value in $opacities
+	@if $opacity == 'default'
+		.is-transparent
+			opacity: $value
+	@else
+		.is-transparent-#{$opacity}
+			opacity: $value
 
 .is-seo-hidden
-	+bp-responsive
-		display: block
-		opacity: 0
-		width: 0
-		height: 0
-		border: none
-		margin: 0 !important
-		padding: 0 !important
+	display: block
+	opacity: 0
+	width: 0
+	height: 0
+	border: none
+	margin: 0 !important
+	padding: 0 !important
 
 .is-hidden
 	+bp-responsive
