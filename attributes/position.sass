@@ -13,6 +13,9 @@
 			display: $display !important
 
 @each $direction in (top, bottom, left, right)
+	.to-#{$direction}
+		#{$direction}: 0
+
 	.is-clung-#{$direction}
 		+bp-responsive
 			position: absolute
@@ -34,4 +37,3 @@
 	clear: both
 	content: " "
 	display: table
-

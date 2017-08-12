@@ -1,11 +1,14 @@
 @function grey($amt) 
 	@return darken(white, $amt)
 
-@function bp($bp)
+@function bp($bp, $bps: $bps)
 	@return map-get($bps, $bp)
 
-@function color($key)
+@function color($key, $colors: $colors)
 	@return map-get($colors, $key)
+
+@function spacing($size, $sizes: $sizes, $spacing: $base-spacing)
+	@return map-get($sizes, $size) * $spacing
 	
 @function fs( $level, $ratio: $font-ratio) 
 	$size: 1rem
