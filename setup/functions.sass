@@ -10,13 +10,8 @@
 @function spacing($size, $sizes: $sizes, $spacing: $base-spacing)
 	@return map-get($sizes, $size) * $spacing
 	
-@function fs( $level, $ratio: $font-ratio) 
-	$size: 1rem
+@function fs($level, $sizes: $font-sizes) 
+	@return map-get($sizes, $level)
 
-	@for $i from 1 through $level
-		$size: $size * (1 + $ratio)
-
-	@return $size
-
-@function toClassName($prop, $default, $return: null, $sep: '-')
-	@return if($prop == $default, $return, $sep + $prop)
+@function leading($label, $map: $leadings)
+	@return map-get($map, $label)

@@ -7,3 +7,7 @@
 	.is-#{$display}
 		+bp-responsive
 			display: $display !important
+
+@each $label,$z in $z-indexes
+	.is-z-#{$label}
+		z-index: $z !important

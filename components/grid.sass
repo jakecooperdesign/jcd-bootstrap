@@ -19,34 +19,20 @@
 	display: flex
 
 .column
+	padding-left: $column-gap/2
+	padding-right: $column-gap/2
 	+from(bp('sm'))
-		padding-left: $column-gap/2
-		padding-right: $column-gap/2
 		flex: 1
 
-	@for $i from 1 through $column-count
-		$col-width: ($i/12) * 100%
-		&.is-#{$i}
-			+bp-responsive
-				flex-grow: 0
-				flex-basis: $col-width
-				width: $col-width
-		&.is-offset-#{$i}
-			+bp-responsive
-				margin-left: $col-width 
-
-// .has-vert-centered-children
-// 	align-items: center
-
-
-// @for $i from 1 through $column-count
-// 	&.is-offset-#{$i}
-// 		+bp-responsive
-// 			margin-left: ($i / 12) * 100%
-	
-// 	.column.is-#{$i}
-// 		@extend .is-flex-none
-	
-// 	.is-#{$i}
-// 		+bp-responsive
-// 			width: ($i / 12) * 100%
+@for $i from 1 through $column-count
+	$col-width: ($i/12) * 100%
+	.is-#{$i}
+		+bp-responsive
+			width: $col-width
+	.column.is-#{$i}
+		+bp-responsive
+			flex-basis: $col-width
+			flex-grow: 0
+	.is-offset-#{$i}
+		+bp-responsive
+			margin-left: $col-width 
