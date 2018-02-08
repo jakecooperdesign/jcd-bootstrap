@@ -1,10 +1,13 @@
 @each $color, $hex in $colors
+	@each $side in ('top', 'left', 'bottom', 'right')
+		.has-border-#{$side}-#{$color}
+			border-#{$side}: 1px solid $hex
+		.has-border-#{$color}
+			border: 1px solid $hex
 
-	@each $size, $width in $border-sizes
-		$size: toClassName($size, 'default')
-
-		@each $direction in ('all', 'top', 'left', 'bottom', 'right')
-			$direction: toClassName($direction, 'all')
-
-			.has-border#{$direction}-#{$color}#{$size}
-				border#{$direction}: $width solid $hex
+@each $label,$width in ('medium': 2px, 'large': 4px)
+	.has-border-#{$label}
+		border-width: $width
+	@each $side in (top, left, bottom, right)
+		.has-border-#{$side}-#{$label}
+			border-#{$side}-width: $width

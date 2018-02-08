@@ -1,7 +1,8 @@
-.serif
-	font-family: $font-serif !important
+@each $label,$family in $font-families
+	.is-font-#{$label}
+		font-family: $family !important
 
-.sans
+.is-font-sans
 	font-family: $font-sans !important
 
 @each $direction in (left,right,center)
@@ -9,28 +10,105 @@
 		+bp-responsive
 			text-align: $direction
 
-.is-caps
-	text-transform: uppercase !important
-
 @for $weight from 1 through 9
-	.is-weight-#{$weight}00
+	.has-text-weight-#{$weight}00
 		font-weight: #{$weight}00 !important
 
-.is-normal,
-.is-style-normal
-	font-style: normal !important
+@each $style in (normal,italic)
+	.has-text-#{$style}
+		font-style: #{$style} !important
 
-.is-fs-0
-	font-size: $base-font-size !important
+@each $size in $font-sizes
+	$index: index($font-sizes, $size)
 
-@for $i from 1 through 6
-	.is-fs-#{$i}
+	.is-size-#{$index}
 		+bp-responsive
-			font-size: fs($i) !important
+			font-size: $size
 
-	h#{$i}
-		font-size: fs(abs($i - 6 - 1))
+	.content h#{$index}
+		font-size: $size
 
-@each $label, $value in $font-tracking
-	.is-tracked-#{$label}
-		letter-spacing: $value
+.is-size-7
+	font-size: .75rem !important
+
+$content-spacing: 1.75rem
+
+.content
+	p, dl, ol, ul, blockquote, pre, table,
+	h1,h2,h3
+		max-width: 38rem
+		&:not(:last-child)
+			margin-bottom: $content-spacing
+
+	h1,h2,h3
+		&:not(:first-child)
+			margin-top: $content-spacing * 2
+	h2,h3
+		font-weight: normal
+	h3
+		font-size: $size-5
+	h4
+		text-transform: uppercase
+		letter-spacing: 0.2em
+		font-size: $size-6
+
+	blockquote
+		background-color: color('offwhite')
+
+	ol
+		list-style: decimal outside
+		margin-left: 2em
+
+	ul
+		list-style: disc outside
+		margin-left: 2em
+		ul
+			list-style-type: circle
+			ul
+				list-style-type: square
+
+	dd
+		margin-left: 2em
+
+	figure
+		margin-left: 2em
+		margin-right: 2em
+		text-align: center
+		&:not(:first-child)
+			margin-top: 2em
+		&:not(:last-child)
+			margin-bottom: 2em
+
+		img
+			display: inline-block
+
+		figcaption
+			font-style: italic
+
+	pre
+		overflow-x: auto
+		white-space: pre
+		word-wrap: normal
+
+	code
+		display: inline-block
+		font-size: .85em
+		padding: .25em .6em
+		color: color('primary-dark')
+		background-color: color('primary-light')
+		line-height: 1.2
+
+	$cell-padding: .75rem
+	table
+		min-width: 75%
+		td,th
+			padding: $cell-padding 0
+			text-align: left
+			&:not(:first-child)
+				padding-left: $cell-padding
+				text-align: right
+		td
+			border-top: 1px solid color('offwhite')
+		th
+			color: color('light')
+			font-weight: normal

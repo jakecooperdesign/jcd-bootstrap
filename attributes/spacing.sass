@@ -1,26 +1,31 @@
-@each $property in (margin, padding)
-
-	@each $size, $value in $sizes
-		$size: toClassName($size, 'default')
-		.has-#{$property}-vert#{$size}
+$spacing-sizes: ('0': 0, '1': 1rem, '2': 2rem, '3': 3rem, '4': 4rem)
+@each $label,$value in $spacing-sizes
+	@each $letter,$direction in ('t':'top', 'r':'right', 'b':'bottom', 'l':'left')
+		.p#{$letter}#{$label}
 			+bp-responsive
-				#{$property}-top: $base-spacing * $value
-				#{$property}-bottom: $base-spacing * $value
-
-		.has-#{$property}-horiz#{$size}
+				padding-#{$direction}: $value
+		.m#{$letter}#{$label}
 			+bp-responsive
-				#{$property}-left: $base-spacing * $value
-				#{$property}-right: $base-spacing * $value
-
-	@each $direction in $directions
-		$direction: toClassName($direction, 'all')
-
-		.is-#{$property}less#{$direction}
-			#{$property}#{$direction}: 0 !important
-
-		@each $size, $value in $sizes
-			$size: toClassName($size, 'default')
-
-			.has-#{$property}#{$direction}#{$size}
-				+bp-responsive
-					#{$property}#{$direction}: $base-spacing * $value
+				margin-#{$direction}: $value
+	.p#{$label}
+		+bp-responsive
+			padding: $value
+	.pv#{$label}
+		+bp-responsive
+			padding-top: $value
+			padding-bottom: $value
+	.ph#{$label}
+		+bp-responsive
+			padding-right: $value
+			padding-left: $value
+	.m#{$label}
+		+bp-responsive
+			margin: $value
+	.mv#{$label}
+		+bp-responsive
+			margin-top: $value
+			margin-bottom: $value
+	.mh#{$label}
+		+bp-responsive
+			margin-right: $value
+			margin-left: $value

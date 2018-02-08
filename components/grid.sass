@@ -1,41 +1,52 @@
 
 .container
-	width: $container-small
+	width: $container-width-small
 	margin-left: auto
 	margin-right: auto
 	display: block
 
-	+from($container-width + $container-buffer * 2)
+	+from($container-width-base + $column-gap * 2)
 		width: 100%
-		max-width: $container-width
+		max-width: $container-width-base
 
-	+from($container-max + $container-buffer * 2)
-		max-width: $container-max
+	+from($container-width-max + $column-gap * 2)
+		max-width: $container-width-max
 
 .columns
-	margin-left: -1 * $grid-gutter
-	margin-right: -1 * $grid-gutter
+	margin-left: -1 * $column-gap/2
+	margin-right: -1 * $column-gap/2
 	flex-wrap: wrap
 	display: flex
 
 .column
 	+from(bp('sm'))
-		padding-left: $grid-gutter
-		padding-right: $grid-gutter
+		padding-left: $column-gap/2
+		padding-right: $column-gap/2
 		flex: 1
 
-.has-vert-centered-children
-	align-items: center
+	@for $i from 1 through $column-count
+		$col-width: ($i/12) * 100%
+		&.is-#{$i}
+			+bp-responsive
+				flex-grow: 0
+				flex-basis: $col-width
+				width: $col-width
+		&.is-offset-#{$i}
+			+bp-responsive
+				margin-left: $col-width 
+
+// .has-vert-centered-children
+// 	align-items: center
 
 
-@for $i from 1 through $grid-count
-	&.is-offset-#{$i}
-		+bp-responsive
-			margin-left: ($i / 12) * 100%
+// @for $i from 1 through $column-count
+// 	&.is-offset-#{$i}
+// 		+bp-responsive
+// 			margin-left: ($i / 12) * 100%
 	
-	.column.is-#{$i}
-		@extend .is-flex-none
+// 	.column.is-#{$i}
+// 		@extend .is-flex-none
 	
-	.is-#{$i}
-		+bp-responsive
-			width: ($i / 12) * 100%
+// 	.is-#{$i}
+// 		+bp-responsive
+// 			width: ($i / 12) * 100%

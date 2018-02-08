@@ -1,7 +1,13 @@
 $font-sans: 'Lato', Helevetica, Arial, sans-serif !default
 $font-serif: 'Libre Franklin', Baskerville, Georgia, Times, serif !default
-$font-ratio: (2/7) !default
+$font-headings: $font-sans !default
+$font-base: $font-sans !default
+
+$font-families: ('sans': $font-sans, 'serif': $font-serif, 'headings': $font-headings, 'base': $font-base) !default
+
+$font-ratio: (2/8) !default
 $font-tracking: ('tight': -0.025em, 'loose': 0.25em) !default
+$font-weight-headings: bold !default
 
 $base-font-size: 16px !default
 $base-line-height: 1.8 !default
@@ -14,37 +20,58 @@ $bp-lg: 960px !default
 
 $bps: ( 'sm': $bp-sm, 'md': $bp-md, 'lg': $bp-lg ) !default
 
-$container-small: 90% !default
-$container-buffer: 32px !default
-$container-width: bp('md') !default
-$container-max: 1200px !default
+$container-width-small: 90% !default
+$container-width-base: bp('md') !default
+$container-width-max: 1200px !default
 
-$grid-gutter: 16px !default
-$grid-count: 12 !default
+$column-gap: 32px !default
+$column-count: 12 !default
 
 $base-speed: .5s !default
 $base-easing: ease-in-out !default
 
-$color-accent: #001a4b !default
-$color-primary: rgb(0,27,140) !default
-$color-dark: grey(85) !default
-$color-light: grey(50) !default
-$color-links: $color-light !default
+$color-primary:         hsl(195,100,40) !default
+$color-primary-light:   hsl(195,100,90) !default
+$color-primary-dark:    hsl(195,100,20) !default
+$color-accent:          hsl(62,100,60) !default
+$color-accent-light:    hsl(62,100,80) !default
+$color-accent-dark:     hsl(62,100,20) !default
+
+$shade-white:           grey(0) !default
+$shade-offwhite:        grey(3) !default
+$shade-extralight:      grey(20) !default
+$shade-light:           grey(40) !default
+$shade-grey:            grey(65) !default
+$shade-dark:            grey(85) !default
+$shade-black:           grey(100) !default
+
+$shades: ( white: $shade-white, offwhite: $shade-offwhite, extralight: $shade-extralight, light: $shade-light, grey: $shade-grey, dark: $shade-dark, black: $shade-black )
+$colors: (accent: $color-accent, accent-light: $color-accent-light, accent-dark: $color-accent-dark, primary: $color-primary, primary-light: $color-primary-light, primary-dark: $color-primary-dark) !default
+$colors: map-merge($colors, $shades)
+
+$color-links: color('light') !default
 $color-links-hover: transparentize($color-links, 0.25) !default
+
 $color-text: grey(90) !default
 
-$colors: (white: white, offwhite: grey(3), light: grey(40), grey: grey(65), dark: grey(85), black: black, accent: $color-accent, primary: $color-primary) !default
-$color-greys: (2,3,5,10,15,20,85,90,95) !default
 $site-bg: none !default
 
 $button-radius: .25rem !default
 $button-padding: .75em 1em !default
 $button-padding-small: .7em 1em !default
 
-$opacities: ('default': 0.5, 'semi': 0.75, 'light': 0.175) !default
-
 $border-sizes: ('default': 1px, 'medium': 4px, 'large': 8px) !default
 
 $base-spacing: 1rem !default
 $sizes: ('small': .5, 'default': 1, 'medium': 2, 'large': 4) !default
 $directions: ('all', 'top', 'bottom', 'left', 'right') !default
+
+$size-1: fs(6) !default
+$size-2: fs(5) !default
+$size-3: fs(4) !default
+$size-4: fs(3) !default
+$size-5: fs(2) !default
+$size-6: fs(1) !default
+$size-7: .75rem
+
+$font-sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6
