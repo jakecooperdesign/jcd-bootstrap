@@ -4,14 +4,14 @@
 @function bp($bp, $bps: $bps)
 	@return map-get($bps, $bp)
 
-@function color($key, $colors: $colors)
-	@return map-get($colors, $key)
+@function color($key, $map: $colors)
+	@return map-get($map, $key)
 
 @function spacing($size, $sizes: $sizes, $spacing: $base-spacing)
 	@return map-get($sizes, $size) * $spacing
 	
 @function fs($level, $sizes: $font-sizes) 
-	@return map-get($sizes, $level)
+	@return nth($sizes, $level)
 
 @function leading($label, $map: $leadings)
 	@return map-get($map, $label)

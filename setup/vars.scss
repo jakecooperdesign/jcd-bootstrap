@@ -54,9 +54,9 @@ $base-easing: ease-in-out !default;
 $color-primary:         hsl(195,100,40) !default;
 $color-primary-light:   hsl(195,100,90) !default;
 $color-primary-dark:    hsl(195,100,20) !default;
-$color-accent:          hsl(62,100,60) !default;
-$color-accent-light:    hsl(62,100,80) !default;
-$color-accent-dark:     hsl(62,100,20) !default;
+$color-accent:          rgb(255, 50, 193) !default;
+$color-accent-light:    rgb(236, 129, 204) !default;
+$color-accent-dark:     rgb(138, 14, 101) !default;
 
 $shade-white:           grey(0) !default;
 $shade-offwhite:        grey(3) !default;
@@ -76,7 +76,7 @@ $shades: (
     black: $shade-black 
 ) !default;
 
-$colors: (
+$color-palette: (
     accent: $color-accent, 
     accent-light: $color-accent-light, 
     accent-dark: $color-accent-dark, 
@@ -85,11 +85,11 @@ $colors: (
     primary-dark: $color-primary-dark
 ) !default;
 
-$colors: map-merge($colors, $shades) !default;
+$colors: map-merge($color-palette, $shades);
 
-$color-links: color('light') !default;
-$color-links-hover: transparentize($color-links, 0.25) !default;
-$color-text: grey(90) !default;
+$color-links: $shade-light !default;
+$color-links-hover: $shade-grey !default;
+$color-text: $shade-dark !default;
 
 $site-bg: none !default;
 
@@ -133,6 +133,6 @@ $z-indexes: (
 	0: -1,
 	1: 10,
 	2: 20,
-	3: 30
+	3: 30,
 	top: 9999
-);
+) !default;
