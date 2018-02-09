@@ -85,7 +85,7 @@ $color-palette: (
     primary-dark: $color-primary-dark
 ) !default;
 
-$colors: map-merge($color-palette, $shades);
+$colors: map-merge($color-palette, $shades) !default;
 
 $color-links: $shade-light !default;
 $color-links-hover: $shade-grey !default;
