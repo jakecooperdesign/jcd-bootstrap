@@ -17,6 +17,12 @@
 	margin-right: -1 * $column-gap/2
 	flex-wrap: wrap
 	display: flex
+	&.is-gapless
+		margin-left: 0
+		margin-right: 0    
+		.column
+			padding-left: 0
+			padding-right: 0
 
 .column
 	padding-left: $column-gap/2
