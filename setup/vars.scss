@@ -21,6 +21,7 @@ $font-ratio: (2/8) !default;
 
 $font-tracking: (
     'tight': -0.025em, 
+    'light': 0.025em, 
     'loose': 0.25em 
 ) !default;
 
@@ -30,6 +31,7 @@ $base-font-size: 16px !default;
 $base-line-height: 1.8 !default;
 $base-font-family: $font-sans !default;
 $base-font-small: .875rem !default;
+$base-width: 375px !default;
 
 $bp-sm: 480px !default;
 $bp-md: 720px !default;
@@ -110,6 +112,22 @@ $sizes: (
     'default;': 1, 
     'medium': 2, 
     'large': 4
+) !default;
+
+$spacing-sizes: (
+    '-6': -6rem, 
+    '-4': -4rem, 
+    '-2': -2rem, 
+    '-3': -3rem, 
+    '-1': -1rem, 
+    '0': 0, 
+    'small': .5rem, 
+    '1': 1rem, 
+    '2': 2rem, 
+    '3': 3rem, 
+    '4': 4rem, 
+    '6': 6rem, 
+    '8': 8rem
 ) !default;
 
 $directions: (

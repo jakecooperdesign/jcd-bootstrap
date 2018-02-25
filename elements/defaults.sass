@@ -4,7 +4,7 @@
 html, body 
 	min-height: 100%
 	min-height: 100vh
-	min-width: 100%
+	min-width: $base-width
 	font-size: $base-font-size
 	color: $color-text
 	background: $site-bg
@@ -14,6 +14,8 @@ body
 	font-family: $base-font-family
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: "kern" 1
+    font-kerning: normal
 
 h1,h2,h3,h4,h5,h6
 	font-size: $size-6
@@ -65,3 +67,9 @@ a
 li
 	margin: .25rem 0
 
+button,
+.button
+    &:hover
+        cursor: pointer
+    &:focus
+        outline: none
